@@ -14,6 +14,13 @@ $('#entrar').click(function() {
             "Accept": "application/json"
         } 
     }) 
-    .then(response => response.json()) 
-    .then(json => console.log(json))
-    });
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .then(json => function(json) {
+    sessionStorage.setItem("ID", json.id);
+    sessionStorage.setItem("Nome", json.name);
+    sessionStorage.setItem("Sobrenome", json.surname);
+    sessionStorage.setItem("Tipo", json.type);
+    window.location.href = "http:projetofinalweb/Front-end";
+    })
+});
