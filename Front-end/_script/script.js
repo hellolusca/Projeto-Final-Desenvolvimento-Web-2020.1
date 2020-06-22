@@ -2,11 +2,11 @@
 $('#entrar').click(function() {
     var username = $('#username').val();
     var password = $('#password').val();
-    var type = "A";
     
-    fetch("http://projetofinalweb/Back-end/api/read/login.php", { 
+    fetch("http://projetofinalweb/Back-end/login", { 
         method: "POST",
-        body: JSON.stringify({ 
+        body: JSON.stringify({
+        oper: "login",
         username: username, 
         password: password
         }), 
@@ -16,24 +16,32 @@ $('#entrar').click(function() {
         } 
     }) 
     .then(response => response.json())
-    //.then(data => console.log(data))
     .then(
         function(data) {
-            console.log(data.id);
-            sessionStorage.setItem("id", data.id);
-            sessionStorage.setItem("name", data.name);
-            sessionStorage.setItem("surname", data.surname);
-            sessionStorage.setItem("username", data.username)
-            sessionStorage.setItem("type", data.type);
-            window.location.href = "http://projetofinalweb/Front-end/index.html";
+            console.log(data[0].status);
+            if (data[0].check == "ok") {
+                document.getElementById("username").classList.remove('is-invalid');
+                document.getElementById("username").classList.add('is-valid');
+                if (data[0].status == true) {
+                    document.getElementById("password").classList.remove('is-invalid');
+                    document.getElementById("password").classList.add('is-valid');
+                    sessionStorage.setItem("id", data[0].id);
+                    sessionStorage.setItem("name", data[0].name);
+                    sessionStorage.setItem("surname", data[0].surname);
+                    sessionStorage.setItem("username", data[0].username);
+                    sessionStorage.setItem("type", data[0].type);
+                    console.log(data[0].id);
+                    window.location.href = "http://projetofinalweb/Front-end/index.html";
+                } else {
+                    document.getElementById("password").classList.remove('is-valid');
+                    document.getElementById("password").classList.add('is-invalid');
+                }
+            } else {
+                document.getElementById("username").classList.add('is-invalid');
+            }    
         }
     ); 
 });
-// HOME PAGE
-/*
-document.getElementById("id").innerHTML = sessionStorage.getItem("id");
-document.getElementById("name").innerHTML = sessionStorage.getItem("name");
-document.getElementById("surname").innerHTML = sessionStorage.getItem("surname");
-document.getElementById("username").innerHTML = sessionStorage.getItem("username");
-document.getElementById("type").innerHTML = sessionStorage.getItem("type");
-*/
+
+// NAVBAR
+document.getElementById("userinfo").innerHTML="" + sessionStorage.getItem("name") + " " + sessionStorage.getItem("surname");

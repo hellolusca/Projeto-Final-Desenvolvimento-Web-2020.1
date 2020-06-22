@@ -29,3 +29,21 @@ body {
     display: block;
     margin: auto;
 }
+
+.dashboard {
+    float: left;
+    margin: 3%;
+    display: inline-flex;
+    margin-bottom: 0%;
+}
+
+.dashcards {
+    margin-top: 0%;
+    margin-left: 2%;
+    width: 31%;
+}
+
+.cardnumber {
+    font-size: xx-large;
+    color: darkgreen;
+}
