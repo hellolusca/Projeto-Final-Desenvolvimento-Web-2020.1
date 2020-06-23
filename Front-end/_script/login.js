@@ -43,5 +43,4 @@ $('#entrar').click(function() {
     ); 
 });
 
-// NAVBAR
-document.getElementById("userinfo").innerHTML="" + sessionStorage.getItem("name") + " " + sessionStorage.getItem("surname");
+

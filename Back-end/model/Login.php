@@ -71,7 +71,7 @@ class Login extends Conexao {
         $last = $this->find(Conexao::lastId());
         $last->status = "true";
         $last->msg = "Successfully inserted";
-        return $last; /*Aqui vc tem o ID da pessoa, você pode não retornar ele e adicionar uma nova query para inserção e inserir nas duas tabelas ao mesmo tempo se for sempre assim */        
+        return $last;
 	}
 
 	public function update($obj){
