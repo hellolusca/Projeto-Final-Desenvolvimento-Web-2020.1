@@ -196,6 +196,13 @@ class Providers extends Conexao {
         $consulta->execute();
         $res = $consulta->rowCount();
         return $res;       
+    }
+    
+    public function filter($obj){
+        $sql =  "SELECT id,company_name,cnpj,email,cellphone,city,state FROM providers WHERE ".$obj->filter_by." LIKE '".$obj->keyword."%' ORDER BY `id` ASC";
+        $consulta = Conexao::prepare($sql);
+        $consulta->execute();
+        return $consulta->fetchAll();     
 	}
 }
 ?>

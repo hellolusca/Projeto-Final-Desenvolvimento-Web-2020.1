@@ -31,5 +31,10 @@ class ProvidersControl {
 		$providers = new Providers();
 		return $providers->count();
 	}
+
+	function filter($obj) {
+		$providers = new Providers();
+		return $providers->filter($obj);
+	}
 }
 ?>

@@ -8,7 +8,7 @@ $( document ).ready(function() {
 
     //Preencher tabela
     function list() {
-        return fetch(`http://projetofinalweb/Back-end/employees`)
+        return fetch(`http://projetofinalweb/Back-end/providers`)
         .then((response) => {
             return response.json()
         })
@@ -28,7 +28,7 @@ $( document ).ready(function() {
 
     let addTwoRows = (rows) => {
         rows.forEach(e => {
-        let tbody = document.querySelector('#listaDeFuncionarios tbody')
+        let tbody = document.querySelector('#listaDeFornecedores tbody')
         let tr = document.createElement('tr')
         tr.id = "linha"+e.id;
         tr.innerHTML = rowHtml(e)
@@ -38,7 +38,7 @@ $( document ).ready(function() {
 
     let rowHtml = row => {
         html = ''
-        html += `<td><a href="edit.html?id=${row.id}">${row.id}</a></td><td>${row.name}</td><td>${row.surname}</td><td>${row.cpf}</td><td>${row.email}</td><td>${row.cellphone}</td><td><button class="btn btn-primary my-2 my-sm-0" type="button" value="${row.id}" onclick="editFunc(${row.id})">&#9998;</button><button class="btn btn-danger my-2 my-sm-0" type="button" value="${row.id}" onclick="deleteFunc(${row.id}, '${row.name}', '${row.surname}')">&#128465;</button></td>`
+        html += `<td><a href="edit.html?id=${row.id}">${row.id}</a></td><td>${row.company_name}</td><td>${row.cnpj}</td><td>${row.email}</td><td>${row.cellphone}</td><td>${row.city} / ${row.state}</td><td><button class="btn btn-primary my-2 my-sm-0" type="button" value="${row.id}" onclick="editFunc(${row.id})">&#9998;</button><button class="btn btn-danger my-2 my-sm-0" type="button" value="${row.id}" onclick="deleteFunc(${row.id}, '${row.company_name}')">&#128465;</button></td>`
         return html
     }
 
@@ -47,7 +47,7 @@ $( document ).ready(function() {
 $("#filterButton").click(function () {
     $("#corpoTabela").empty();
     function list() {
-        return fetch(`http://projetofinalweb/Back-end/employees`, {
+        return fetch(`http://projetofinalweb/Back-end/providers`, {
             method: "POST",
             body: JSON.stringify({
                 "oper": "filter",
@@ -78,7 +78,7 @@ $("#filterButton").click(function () {
     
     let addRows = (rows) => {
         rows.forEach(e => {
-          let tbody = document.querySelector('#listaDeFuncionarios tbody')
+          let tbody = document.querySelector('#listaDeFornecedores tbody')
           let tr = document.createElement('tr');
           tr.id = "linha"+e.id;
           tr.innerHTML = rowHtml(e)
@@ -88,19 +88,19 @@ $("#filterButton").click(function () {
     
     let rowHtml = row => {
         html = ''
-        html += `<td><a href="edit.html?id=${row.id}">${row.id}</a></td><td>${row.name}</td><td>${row.surname}</td><td>${row.cpf}</td><td>${row.email}</td><td>${row.cellphone}</td><td><button class="btn btn-primary my-2 my-sm-0" type="button" value="${row.id}" onclick="editFunc(${row.id})">&#9998;</button><button class="btn btn-danger my-2 my-sm-0" type="button" value="${row.id}" onclick="deleteFunc(${row.id}, '${row.name}', '${row.surname}')">&#128465;</button></td>`
+        html += `<td><a href="edit.html?id=${row.id}">${row.id}</a></td><td>${row.company_name}</td><td>${row.cnpj}</td><td>${row.email}</td><td>${row.cellphone}</td><td>${row.city} / ${row.state}</td><td><button class="btn btn-primary my-2 my-sm-0" type="button" value="${row.id}" onclick="editFunc(${row.id})">&#9998;</button><button class="btn btn-danger my-2 my-sm-0" type="button" value="${row.id}" onclick="deleteFunc(${row.id}, '${row.company_name}')">&#128465;</button></td>`
         return html
     }
 })
 
-function editFunc(id, name, surname) {
+function editFunc(id, comapny_name) {
     
 }
 
-function deleteFunc(id=null, name="", surname="") {
-    var result = confirm(`Tem certeza que deseja excluir o funcionário `+name+ ` `+surname+`?`);
+function deleteFunc(id=null, company_name="") {
+    var result = confirm(`Tem certeza que deseja excluir o fornecedor `+company_name+ `?`);
     if (result) {
-        fetch(`http://projetofinalweb/Back-end/employees`, {
+        fetch(`http://projetofinalweb/Back-end/providers`, {
             method: "POST",
             body: JSON.stringify({
                 "oper": "delete",
