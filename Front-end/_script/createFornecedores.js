@@ -2,6 +2,11 @@ if (sessionStorage.getItem("id") == null) {
     window.location.href = "http://projetofinalweb/"
 }
 
+function logout() {
+    sessionStorage.removeItem("id")
+    window.location.href = "http://projetofinalweb";
+}
+
 //NAVBAR
 document.getElementById("userinfo").innerHTML="" + sessionStorage.getItem("name") + " " + sessionStorage.getItem("surname");
 
