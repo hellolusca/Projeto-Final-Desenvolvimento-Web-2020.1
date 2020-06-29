@@ -31,5 +31,15 @@ class EmployeesControl {
 		$employees = new Employees();
 		return $employees->count();
 	}
+
+	function jobs() {
+		$employees = new Employees();
+		return $employees->jobs();
+	}
+
+	function filter($obj) {
+		$employees = new Employees();
+		return $employees->filter($obj);
+	}
 }
 ?>

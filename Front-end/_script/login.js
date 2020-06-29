@@ -1,3 +1,7 @@
+if (sessionStorage.getItem("id") != null) {
+    window.location.href = "http://projetofinalweb/Front-end"
+}
+
 // LOGIN PAGE
 $('#entrar').click(function() {
     var username = $('#username').val();

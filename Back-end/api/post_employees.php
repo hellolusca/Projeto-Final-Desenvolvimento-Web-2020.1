@@ -50,5 +50,45 @@ else {
 		   echo json_encode(array("mensagem" => $e));
 	   	}
 	}
+	if ($obj->oper == "jobs") {
+		try {
+			$employeesControl = new EmployeesControl();
+			$resposta = $employeesControl->jobs();
+			http_response_code(200);
+			$res = $resposta;
+			echo json_encode($res);
+		}
+		catch (PDOException $e) {
+			http_response_code(400);
+		   echo json_encode(array("mensagem" => $e));
+	   	}
+	}
+	if ($obj->oper == "filter") {
+		try {
+			$employeesControl = new EmployeesControl();
+			$resposta = $employeesControl->filter($obj);
+			http_response_code(200);
+			$res = $resposta;
+			echo json_encode($res);
+		}
+		catch (PDOException $e) {
+			http_response_code(400);
+		   echo json_encode(array("mensagem" => $e));
+	   	}
+	}
+
+	if ($obj->oper == "delete") {
+		try {
+			$employeesControl = new EmployeesControl();
+			$resposta = $employeesControl->delete($obj->id);
+			http_response_code(200);
+			$res = $resposta;
+			echo json_encode($res);
+		}
+		catch (PDOException $e) {
+			http_response_code(400);
+		   echo json_encode(array("mensagem" => $e));
+	   	}
+	}
 }
 ?>

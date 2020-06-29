@@ -101,7 +101,7 @@ class Employees extends Conexao {
         $last->status = "true";
         $last->msg = "Successfully inserted";
         return $last;        
-	}
+    }
 
 	public function update($obj){
 		$sql = "UPDATE employees SET 
@@ -160,6 +160,20 @@ class Employees extends Conexao {
         $consulta->execute();
         $res = $consulta->rowCount();
         return $res;       
+    }
+    
+    public function jobs(){
+        $sql =  "SELECT * FROM job_titles ORDER BY name ASC";
+        $consulta = Conexao::prepare($sql);
+        $consulta->execute();
+        return $consulta->fetchAll();;       
+    }
+    
+    public function filter($obj){
+        $sql =  "SELECT id,name,surname,cpf,email,cellphone FROM employees WHERE ".$obj->filter_by." LIKE '".$obj->keyword."%' ORDER BY `id` ASC";
+        $consulta = Conexao::prepare($sql);
+        $consulta->execute();
+        return $consulta->fetchAll();;       
 	}
 }
 ?>

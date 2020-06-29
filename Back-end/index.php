@@ -28,17 +28,12 @@ function checkRequest() {
 
 $answer = checkRequest();
 
-// localhost/PhpBackEnd/pessoas
-// localhost/PhpBackEnd/conteudo 
-// localhost/PhpBackEnd/universidades 
-
 $request = $_SERVER['REQUEST_URI']; 
 
 // IDENTIFICA A URI DA REQUISIÇÃO
 
 $args = explode('/', rtrim($request, '/'));
 // localhost/PhpBackEnd/pessoas
-
 // $args[0] localhost
 // $args[1] PhpBackEnd
 // $args[2] pessoas
@@ -76,6 +71,9 @@ switch ($request) {
 		break;
 	case '/'.PASTAPROJETO.'/products' :		
 		require __DIR__ . '/api/'.$answer.'_products.php';
+		break;
+	case '/'.PASTAPROJETO.'/assets' :		
+		require __DIR__ . '/api/'.$answer.'_assets.php';
 		break;
     default:
         require __DIR__ . '/api/404.php';
