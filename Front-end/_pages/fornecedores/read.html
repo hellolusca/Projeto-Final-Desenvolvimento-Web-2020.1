@@ -143,6 +143,156 @@
   
             </tbody>
         </div>
+
+
+        <!--MODAL EDIT-->
+        <div class="modal fade" id="modalEdit" tabindex="-1" role="dialog" aria-labelledby="modalEdit" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="modalEditTitle">Editar fornecedor</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="container container-forms card">
+                  <h6 class="card-subtitle mb-2 text-muted">Preencha os campos abaixo para alterar os dados do fornecedor:</h6>
+                  <p></p>
+                  <form id="form">
+                    <input type="hidden" id="id" name="custId">
+                    <div class="form-row">
+                      <div class="form-group col-6">
+                        <label for="company_name">Nome da empresa: *</label>
+                        <input type="text" class="form-control" id="company_name" placeholder="Insira o nome da empresa aqui" required>
+                      </div>
+                      <div class="form-group col-6">
+                        <label for="cnpj">CNPJ: *</label>
+                        <input type="text" class="form-control" id="cnpj" placeholder="Insira o CNPJ aqui" required>
+                      </div>
+                    </div>
+                    <div class="form-row">
+                      <div class="form-group col-6">
+                        <label for="cellphone">Telefone: *</label>
+                        <input type="text" class="form-control" id="cellphone" placeholder="Insira o telefone aqui" required>
+                      </div>
+                      <div class="form-group col-6">
+                        <label for="email">E-mail: *</label>
+                        <input type="email" class="form-control" id="email" placeholder="Insira o e-mail aqui" required>
+                      </div>
+                    </div>
+                    <div class="form-row">
+                      <div class="form-group col-9">
+                        <label for="address">Endereço: *</label>
+                        <input type="text" class="form-control" id="address" placeholder="Insira o endereço aqui" required>
+                      </div>
+                      <div class="form-group col-3">
+                        <label for="number">Número: *</label>
+                        <input type="number" class="form-control" id="number"required>
+                      </div>
+                    </div>
+                    <div class="form-row">
+                      <div class="form-group col-6">
+                        <label for="complement">Complemento: </label>
+                        <input type="text" class="form-control" id="complement" placeholder="Insira o complemento aqui" required>
+                      </div>
+                      <div class="form-group col-6">
+                        <label for="cep">CEP: *</label>
+                        <input type="number" class="form-control" id="cep" placeholder="Insira o CEP aqui" required>
+                      </div>
+                    </div>
+                    <div class="form-row">
+                      <div class="form-group col-6">
+                        <label for="neighborhood">Bairro: *</label>
+                        <input type="text" class="form-control" id="neighborhood" placeholder="Insira o bairro aqui" required>
+                      </div>
+                      <div class="form-group col-6">
+                        <label for="city">Cidade: *</label>
+                        <input type="text" class="form-control" id="city" placeholder="Insira a cidade aqui" required>
+                      </div>
+                    </div>
+                    <div class="form-row">
+                      <div class="form-group col-6">
+                        <label for="state">Estado: *</label>
+                        <select id="state" class="form-control">
+                          <option value=""></option>
+                          <option value="AC">Acre</option>
+                          <option value="AL">Alagoas</option>
+                          <option value="AP">Amapá</option>
+                          <option value="AM">Amazonas</option>
+                          <option value="BA">Bahia</option>
+                          <option value="CE">Ceará</option>
+                          <option value="DF">Distrito Federal</option>
+                          <option value="ES">Espírito Santo</option>
+                          <option value="GO">Goiás</option>
+                          <option value="MA">Maranhão</option>
+                          <option value="MT">Mato Grosso</option>
+                          <option value="MS">Mato Grosso do Sul</option>
+                          <option value="MG">Minas Gerais</option>
+                          <option value="PA">Pará</option>
+                          <option value="PB">Paraíba</option>
+                          <option value="PR">Paraná</option>
+                          <option value="PE">Pernambuco</option>
+                          <option value="PI">Piauí</option>
+                          <option value="RJ">Rio de Janeiro</option>
+                          <option value="RN">Rio Grande do Norte</option>
+                          <option value="RS">Rio Grande do Sul</option>
+                          <option value="RO">Rondônia</option>
+                          <option value="RR">Roraima</option>
+                          <option value="SC">Santa Catarina</option>
+                          <option value="SP">São Paulo</option>
+                          <option value="SE">Sergipe</option>
+                          <option value="TO">Tocantins</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div id="feedbackPositivo" class="alert alert-success" role="alert">
+                      Tudo certo. Fornecedor cadastrado com sucesso!
+                    </div>
+                    <div id="feedbackNegativo" class="alert alert-danger" role="alert">
+                      Epa. Preencha todos os campos marcados com "*"!
+                    </div>
+                    <p></p>
+                    <div class="form-row">
+                      <button type="reset" class="btn btn-secondary col-4" data-dismiss="modal">Cancelar</button>&nbsp;&nbsp;&nbsp;&nbsp;
+                      <button id="save" type="button" class="btn btn-success col-4">Salvar alterações</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!--MODAL LIST-->
+        <div class="modal fade" id="modalList" tabindex="-1" role="dialog" aria-labelledby="modalEdit" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="modalEditTitle">Dados do funcionário</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="container container-forms card">
+                  <p id="idList"></p>
+                  <p id="company_nameList"></p>
+                  <p id="cnpjList"></p>
+                  <p id="cellphoneList"></p>
+                  <p id="emailList"></p>
+                  <p id="addressList"></p>
+                  <p id="numberList"></p>
+                  <p id="complementList"></p>
+                  <p id="cepList"></p>
+                  <p id="neighborhoodList"></p>
+                  <p id="cityList"></p>
+                  <p id="stateList"></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
