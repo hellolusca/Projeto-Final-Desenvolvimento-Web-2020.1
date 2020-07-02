@@ -21,7 +21,7 @@ $('#submit').click(function() {
     var cellphone = $('#cellphone').val();
     var email = $('#email').val();
     var salary = Number($('#salary').val());
-    var job_title = $('#job_title').val();;
+    var job_title = $('#job_title').val();
 
     if (name != "" &&
         surname != "" &&

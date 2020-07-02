@@ -109,9 +109,9 @@ class Employees extends Conexao {
             surname = :surname,
             age = :age, 
             email = :email,
-            cellphone = :cellphone
-            cpf = :cpf
-            salary = :salary
+            cellphone = :cellphone,
+            cpf = :cpf,
+            salary = :salary,
             job_title_id = :job_title_id
         WHERE id = :id ";
 		$consulta = Conexao::prepare($sql);

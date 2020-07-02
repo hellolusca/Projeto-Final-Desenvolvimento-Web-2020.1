@@ -139,9 +139,109 @@
                 <th scope="col">Operações</th>
               </tr>
             </thead>
-            <tbody id="corpoTabela">
-  
-            </tbody>
+            <tbody id="corpoTabela"></tbody>
+        </div>
+        <!--MODAL EDIT-->
+        <div class="modal fade" id="modalEdit" tabindex="-1" role="dialog" aria-labelledby="modalEdit" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="modalEditTitle">Editar funcionário</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="container container-forms card">
+                  <h6 class="card-subtitle mb-2 text-muted">Preencha os campos abaixo para editar os dados do funcionário:</h6>
+                  <p></p>
+                  <form id="form">
+                    <input type="hidden" id="id" name="custId">
+                    <div class="form-row">
+                      <div class="form-group col-6">
+                        <label for="name">Nome: *</label>
+                        <input type="text" class="form-control" id="name" placeholder="Insira o nome aqui" required>
+                      </div>
+                      <div class="form-group col-6">
+                        <label for="sobrenome">Sobrenome: *</label>
+                        <input type="text" class="form-control" id="surname" placeholder="Insira o sobrenome aqui" required>
+                      </div>
+                    </div>
+                    <div class="form-row">
+                      <div class="form-group col-6">
+                        <label for="cpf">CPF: *</label>
+                        <input type="text" class="form-control" id="cpf" placeholder="Insira o CPF aqui" required>
+                      </div>
+                      <div class="form-group col-6">
+                        <label for="age">Idade: *</label>
+                        <input type="number" class="form-control" id="age" placeholder="Insira a idade aqui" required>
+                      </div>
+                    </div>
+                    <div class="form-row">
+                      <div class="form-group col-6">
+                        <label for="cellphone">Celular: *</label>
+                        <input type="text" class="form-control" id="cellphone" placeholder="Insira o número de celular aqui" required>
+                      </div>
+                      <div class="form-group col-6">
+                        <label for="email">E-mail: *</label>
+                        <input type="email" class="form-control" id="email" placeholder="Insira o e-mail aqui" required>
+                      </div>
+                    </div>
+                    <div class="form-row">
+                      <div class="form-group col-6">
+                        <label for="salary">Salario: (R$)*</label>
+                        <input type="number" class="form-control" id="salary" placeholder="Insira o salário aqui" required>
+                      </div>
+                      <div class="form-group col-6">
+                        <label for="job_title">Cargo: *</label>
+                        <select class="form-control" id="job_title" placeholder="Escolha o cargo aqui" required>
+                          <option value="0"></option>
+                        </select>
+                      </div>
+                    </div>
+                    <div id="feedbackPositivo" class="alert alert-success" role="alert">
+                      Tudo certo. Funcionário cadastrado com sucesso :)
+                    </div>
+                    <div id="feedbackNegativo" class="alert alert-danger" role="alert">
+                      Epa. Não deixe campos vazios :(
+                    </div>
+                    <p></p>
+                    <div class="form-row">
+                      <button type="reset" class="btn btn-secondary col-4" data-dismiss="modal">Cancelar</button>&nbsp;&nbsp;&nbsp;&nbsp;
+                      <button id="save" type="button" class="btn btn-success col-4">Salvar alterações</button>
+                    </div>
+                  </div>
+                 </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!--MODAL LIST-->
+        <div class="modal fade" id="modalList" tabindex="-1" role="dialog" aria-labelledby="modalEdit" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="modalEditTitle">Dados do funcionário</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="container container-forms card">
+                  <p id="idList"></p>
+                  <p id="nameList"></p>
+                  <p id="surnameList"></p>
+                  <p id="cpfList"></p>
+                  <p id="ageList"></p>
+                  <p id="cellphoneList"></p>
+                  <p id="emailList"></p>
+                  <p id="salaryList"></p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
